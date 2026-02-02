@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-overlay"></div>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <h2>Todo App</h2>
+    <ul>
+      <li class="active" onclick="showSection('home')">Home</li>
+      <li onclick="showSection('current')">Current</li>
+      <li onclick="showSection('deleted')">Deleted</li>
+    </ul>
+  </aside>
+
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- MAIN -->
+  <main class="content">
+
+    <div class="topbar glass">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <h3>Todo Dashboard</h3>
+    </div>
+
+   <div class="cards">
+  <div class="card" onclick="showSection('home')">
+    Total<br><span id="totalCount">0</span>
+  </div>
+
+  <div class="card" onclick="showSection('current')">
+    Current<br><span id="currentCount">0</span>
+  </div>
+
+  <div class="card" onclick="showSection('deleted')">
+    Deleted<br><span id="deletedCount">0</span>
+  </div>
+</div>
+
+
+    <!-- HOME -->
+    <section id="home" class="section glass">
+      <h2>Add / Update Task</h2>
+      <form id="todoForm" class="glass-inner">
+        <input type="text" id="taskInput" placeholder="Enter task" required>
+        <button class="btn theme-btn">Save</button>
+      </form>
+
+      <table class="glass-table">
+        <thead>
+          <tr><th>Task</th><th>Time</th></tr>
+        </thead>
+        <tbody id="homeTable"></tbody>
+      </table>
+    </section>
+
+    <!-- CURRENT -->
+    <section id="current" class="section glass hidden">
+      <h2>Current Tasks</h2>
+      <table class="glass-table">
+        <thead>
+          <tr><th>Task</th><th>Time</th><th>Action</th></tr>
+        </thead>
+        <tbody id="currentTable"></tbody>
+      </table>
+    </section>
+
+    <!-- DELETED -->
+    <section id="deleted" class="section glass hidden">
+      <h2>Deleted Tasks</h2>
+      <table class="glass-table">
+        <thead>
+          <tr><th>Task</th><th>Deleted At</th><th>Action</th></tr>
+        </thead>
+        <tbody id="deletedTable"></tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<script src="todo.js"></script>
+</body>
+</html>
